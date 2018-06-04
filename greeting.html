@@ -12,18 +12,30 @@
     
         <script type="text/babel">
 
-            class Greeting extends React.Component {
+            class Howdy extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        number: 2
+                    }
+                }
                 render() {
                     return (
                         <div>
-                            <h1>Hello {this.props.name}!</h1>
+                            <h1>Howdy, {this.props.name}!</h1>
+                            <h2>Your current location is: {this.props.label}</h2>
+                            <h2>Your current place in line is: {this.state.number}</h2>
                         </div>
                     );
                 }
             }
 
+            Howdy.defaultProps = {
+                label: "Silver Spring, MD"
+            }
+
             ReactDOM.render(
-                <Greeting name="Bloc Student"/>, document.getElementById('app')
+                <Howdy name="handsome"/>, document.getElementById('app')
             );
 
         </script>
